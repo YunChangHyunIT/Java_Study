@@ -46,6 +46,19 @@ str.equals(str2); // true (오버라이딩 했다고 가정)
 - 문자열 타입으로 변경시켜주는 메소드
 - toString을 오버라이딩하면 객체를 print할 시, toString이 호출 된다.
 
+```java
+A a = new A(); // 
+System.out.println(a); // 객체의 메모리 주소가 나온다
+
+// A 클래스 안에 toString을 오버라이딩 한 후
+@Override
+	public String toString() {
+		return "People [name=" + name + ", age=" + age + "]";
+	}
+  
+System.out.println(a2); // People [name= "내가 넣은이름", age= "내가 넣은 나이"] 가나온다.
+```
+
 ### hashcode
 - int hashcode()
 
