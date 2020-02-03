@@ -149,3 +149,4 @@ for (Field f : c.getDeclaredFields()) {	// getDeclaredFields : 해당 클래스�
 // num = 12 라는 결과가 나온다. (물론, 필드가 더 있다면 다른 필드도 나올 것이다.)
 // 이런식으로 필드를 뽑아내면 캡슐화의 의미가 있을까? 라는 의문이 들었지만 try catch로 예외처리를 해주면 된다.
 ```
+ 
