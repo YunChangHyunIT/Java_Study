@@ -88,20 +88,20 @@ Set<E> set = new HashSet<E>();
 - 순서는 유지되지 않으며 키(Key)의 중복을 허용하지 않으나 값(Value)의 중복은 허용한다.
 - 맵 안에 데이터를 하나하나 얻어 내는 방법
 ```java
-Map<E1,E2> map = new HashMap<>();
+Map<K,V> map = new HashMap<>();
 
 // 방법1. Key를 Set 타입으로 뽑아, Iterator를 이용해 Key 값으로 value를 얻는 방법
-final Set<E1> e = map.keySet();
-final Iterator<E1> iterator = e.iterator();
+final Set<K> e = map.keySet();
+final Iterator<V> iterator = e.iterator();
 while(iterator.hasNext()){
-  E1 key = iterator.next();
-  E2 value = map.get(key);
+  K key = iterator.next();
+  V value = map.get(key);
   
 // 방법2. entrySet을 통해 Entry객체를 Set타입으로 뽑아서 key와 value를 동시에 얻는 방법
-final Set<Map.Entry<E1, E2>> entries = map.entrySet();
-final Iterator<Map.Entry<E1, E2>> iterator = entries.iterator();
+final Set<Map.Entry<K, V>> entries = map.entrySet();
+final Iterator<Map.Entry<K, V>> iterator = entries.iterator();
 while(iterator.hasNext()){
-  final Map.Entry<E1, E2> mapEntry = iterator.next();
+  final Map.Entry<K, V> mapEntry = iterator.next();
   mapEntry.getKey();
   mapEntry.getValue();
 }
@@ -113,7 +113,7 @@ while(iterator.hasNext()){
   - 키와 값으로 nll값이 올 수 있다.
   - HashSet과 마찬가지로 hashCode와 equals를 재정의해서 동일한 리턴 값을 가지면 동등한 객체로 간주한다.
 ```java
-Map<E1, E2> map = new HashMap<E1, E2>();
+Map<K, V> map = new HashMap<K, V>();
 ```
 #### Hashtable
 - HashMap과 동일한 내부구조를 가진다.
@@ -122,8 +122,15 @@ Map<E1, E2> map = new HashMap<E1, E2>();
   - 하나의 스레드가 실행을 완료해야 다른 스레드가 실행할 수 있다.
 - 키와 값으로 null값이 허용되지 않는다.
 ```java
-Map<E1, E2> map = new Hashtable<E1, E2>();
+Map<K, V> map = new Hashtable<K, V>();
 ```
+#### LinkedHashMap
+- 기본적으로 HashMap을 상속받아 HashMap과 매우 흡사
+- Map에 있는 엔트리들의 연결 리스트가 유지되므로 입력한 순서대로 반복 가능
+```java
+Map<K, V> map = new LinkedHashMap<K, V>();
+```
+
 #### Properties
 - Hashtable의 하위 클래스이기 때문에 Hashtable의 모든 특징을 그대로 가지고 있다.
 - Hashtable은 키와 값을 다양한 타입으로 지정이 가능하지만 Properties는 키와 값을 String 타입으로 제한한 컬렉션이다.
@@ -165,13 +172,50 @@ TreeSet<E> treeSet = new TreeSet<E>();
 - 저장시 정렬(오름차순)을 하기 때문에 저장시간이 다소 오래 걸린다.
   
 ```java
-TreeMap<E1, E2> treeMap = new TreeMap<E1, E2>();
+TreeMap<K, V> treeMap = new TreeMap<K, V>();
 ```
 ![TreeMap](https://user-images.githubusercontent.com/58713853/73826910-f3e27480-4841-11ea-8d11-2f6d735f54d9.PNG)
+
+### Comparable 과 Compartor
+- TreeSet의 객체와 TreeMapd의 키는 크기를 비교해 트리구조를 구성해야 하기 때문에 java.lang.Comparable 인터페이스를 구현해야 쓸 수 있다.
+
+#### Comparable
+- 기본적인 Wrraper Class들은 Comparable 인터페이스가 구현되어 있어 TreeSet과 TreeMap을 사용할 수 있다.
+- ArrayList 등의 자료구조의 Collection.sort()함수를 사용할때도 Comparable을 이용해 compareTo()메소드만 재정의하게되면 쉽게 Collection 프레임워크의 자료구조들을 정렬하여 사용할 수 있다.
+
+리턴 타입 | 메소드 | 설명
+:-----:|:-------:|:---------------
+int | compareTo(Object o) | 주어진 객체와 같으면 0을 리턴 <br> 주어진 객체보다 작으면 음수를 리턴 <br> 주어진 객체보다 크면 양수를 리턴
+
+#### Compartor
+- TreeSet, TreeMap이 Comparable을 구현하고 있지 않을 경우에는 저장하는 순간 ClassCastException이 발생한다.
+- 이진 트리를 구성하기 위해서는 값 비교가 필수이기 때문에 Comparable 구현체를 구현하는 방법과는 다른 Comparator 인터페이스를 이용해 정렬할 수 있다.
+
+```java
+TreeSet<E> treeSet = new TreeSet<E>(new AscendingComparator());
+TreeMap<K, V> treeMap = new TreeMap<K, V>(new DescendingComparator());
+```
+
+- 정렬자는 Comparator 인터페이스를 구현한 객체를 말하는데, Comparator 인터페이스는 다음과 같은 메소드가 정의되어 있다.
+
+리턴 타입 | 메소드 | 설명
+:-----:|:-------:|:---------------
+int | compareTo(Obect o1, Object o2) | o1과 o2가 동등하다면 0을 리턴 <br> o1이 o2보다 앞에 오게하면 음수를 리턴 <br> o1이 o2보다 뒤에 오게 하려면 양수를 
+
+### Stack
+- 후입선출 (LIFO : Last In First Out)으로 이루어진 자료구조 인터페이스이다.
+```java
+Stack<E> stack = new Stack<E>();
+```
+
+### Queue
+- 선입선출 (FIFO : First In First Out)으로 이루어진 자료구조 인터페이스이다.
+```java
+Queue<E> queue = new LinkedList<E>();
+```
+
   
-#### LinkedHashMap
-  - 기본적으로 HashMap을 상속받아 HashMap과 매우 흡사
-  - Map에 있는 엔트리들의 연결 리스트가 유지되므로 입력한 순서대로 반복 가능
+
   
   
 참고 : https://gangnam-americano.tistory.com/41 \
