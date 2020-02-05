@@ -51,9 +51,13 @@
 
 #### 반복자(Iterator)
 - 메소드
-  - boolean hasNext() : 가져올 객체가 있으면 true를 리턴하고 없으면 false
-  - E next() : 컬렉션에서 하나의 객체를 가져온다.
-  - void remove() : 컬션에서 객체를 제거한다.
+
+리턴 타입 | 메소드 | 설명
+:-----:|:-----:|:----------
+boolean | hasNext() | 가져올 객체가 있으면 true를 리턴하고 없으면 false
+ | next() | 컬렉션에서 하나의 객체를 가져온다.
+void | remove() | 컬렉션에서 객체를 제거한다.
+
 - 사용방법
 ```java
 // 기본적인 Iterator 인터페이스 선언
