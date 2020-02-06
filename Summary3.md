@@ -96,7 +96,7 @@ Map<K,V> map = new HashMap<>();
 
 // 방법1. Key를 Set 타입으로 뽑아, Iterator를 이용해 Key 값으로 value를 얻는 방법
 final Set<K> e = map.keySet();
-final Iterator<V> iterator = e.iterator();
+final Iterator<K> iterator = e.iterator();
 while(iterator.hasNext()){
   K key = iterator.next();
   V value = map.get(key);
