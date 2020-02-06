@@ -67,7 +67,7 @@ Iterator<E> iterator = set.iterator();
 // 방법 1. Iterator를 사용한방법
 while(iterator.hasNext()){  // hasNext가 다음 객체가 있는지 체크해 주기 때문에 객체가 있는 만큼 루프를 돈다.
   E str = iterator.next();
-  
+}
 // 방법 2. For문 사용
 for(E e : set){ // 저장된 객체수만큼 루프를 돈다.
   
