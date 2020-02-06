@@ -160,5 +160,5 @@ if (p instanceof People) {
 	System.out.println("학생입니다.");
 }else if (p instanceof Teacher) {
 	System.out.println("선생 입니다.");
-} 
+}  
 ```
