@@ -204,7 +204,7 @@ TreeMap<K, V> treeMap = new TreeMap<K, V>(new DescendingComparator());
 
 리턴 타입 | 메소드 | 설명
 :-----:|:-------:|:---------------
-int | compareTo(Obect o1, Object o2) | o1과 o2가 동등하다면 0을 리턴 <br> o1이 o2보다 앞에 오게하면 음수를 리턴 <br> o1이 o2보다 뒤에 오게 하려면 양수를 리턴
+int | compareTo(Obect o1, Object o2) | o1과 o2가 동등하다면 0을 리턴 <br> o1이 o2보다 앞에 오게하면 음수를 리턴 <br> o1이 o2보다 뒤에 오게하면 양수를 리턴
 
 ### Stack
 - 후입선출 (LIFO : Last In First Out)으로 이루어진 자료구조 인터페이스이다.
