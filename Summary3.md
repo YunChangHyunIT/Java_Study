@@ -171,7 +171,7 @@ TreeSet<E> treeSet = new TreeSet<E>();
 
 #### TreeMap
 - 키와 값의 쌍으로 이루어진 데이터 MapEntry를 저장
-- 객체를 저장하면 기본적으로 부모 키값과 비교해서 키값이 낮은 것은 왼쪽, 높은 것은 로은쪽에 자동으로 정렬된다.
+- 객체를 저장하면 기본적으로 부모 키값과 비교해서 키값이 낮은 것은 왼쪽, 높은 것은 오른쪽에 자동으로 정렬된다.
 - 정렬된 순서대로 키(Key)와 값(Value)을 저장하여 검색이 빠르다.
 - 저장시 정렬(오름차순)을 하기 때문에 저장시간이 다소 오래 걸린다.
   
@@ -181,7 +181,7 @@ TreeMap<K, V> treeMap = new TreeMap<K, V>();
 ![TreeMap](https://user-images.githubusercontent.com/58713853/73826910-f3e27480-4841-11ea-8d11-2f6d735f54d9.PNG)
 
 ### Comparable 과 Compartor
-- TreeSet의 객체와 TreeMapd의 키는 크기를 비교해 트리구조를 구성해야 하기 때문에 java.lang.Comparable 인터페이스를 구현해야 쓸 수 있다.
+- TreeSet의 객체와 TreeMap의 키는 크기를 비교해 트리구조를 구성해야 하기 때문에 java.lang.Comparable 인터페이스를 구현해야 쓸 수 있다.
 
 #### Comparable
 - 기본적인 Wrraper Class들은 Comparable 인터페이스가 구현되어 있어 TreeSet과 TreeMap을 사용할 수 있다.
@@ -193,7 +193,7 @@ int | compareTo(Object o) | 주어진 객체와 같으면 0을 리턴 <br> 주�
 
 #### Compartor
 - TreeSet, TreeMap이 Comparable을 구현하고 있지 않을 경우에는 저장하는 순간 ClassCastException이 발생한다.
-- 이진 트리를 구성하기 위해서는 값 비교가 필수이기 때문에 Comparable 구현체를 구현하는 방법과는 다른 Comparator 인터페이스를 이용해 정렬할 수 있다.
+- 이진 트리를 구성하기 위해서는 값 비교가 필수이기 때문에 Comparable 구현체를 구현하는 방법 외에 Comparator 인터페이스를 이용해 정렬할 수 있다.
 
 ```java
 TreeSet<E> treeSet = new TreeSet<E>(new AscendingComparator());
@@ -204,7 +204,7 @@ TreeMap<K, V> treeMap = new TreeMap<K, V>(new DescendingComparator());
 
 리턴 타입 | 메소드 | 설명
 :-----:|:-------:|:---------------
-int | compareTo(Obect o1, Object o2) | o1과 o2가 동등하다면 0을 리턴 <br> o1이 o2보다 앞에 오게하면 음수를 리턴 <br> o1이 o2보다 뒤에 오게 하려면 양수를 
+int | compareTo(Obect o1, Object o2) | o1과 o2가 동등하다면 0을 리턴 <br> o1이 o2보다 앞에 오게하면 음수를 리턴 <br> o1이 o2보다 뒤에 오게 하려면 양수를 리턴
 
 ### Stack
 - 후입선출 (LIFO : Last In First Out)으로 이루어진 자료구조 인터페이스이다.
