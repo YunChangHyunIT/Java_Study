@@ -137,7 +137,7 @@ public void divide(int a, int b) throws ZeroException {
     }catch(예외) {
        발송취소();
     }
-}
+} 
 ```
 
 - 잘한 예에서는 try에 함수를 호출할 때 함수중 하나라도 오류가 발생하면 예외처리를 하게 된다.
