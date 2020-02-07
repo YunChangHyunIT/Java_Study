@@ -51,10 +51,12 @@ try { // throws로 던졌기 때문에 호출하는 부분에서 try/catch를 �
 #### Exception
 - 프로그램 작성 시 발생하는 예외
 - 이미 예측가능한 예외를 작성할 때 사용한다.
+- Checked Exception 이라고도 한다.
 
 #### RuntimeException
 - 실행 시 발생하는 예외
 - 사용자가 사용할 때 발생 할수도 발생 안 할수도 있는 경우에 사용한다.
+- Unchecked Exception 이라고도 한다.
 
 #### 사용 방법
 ```java
