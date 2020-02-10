@@ -18,6 +18,7 @@ public class Product<T,M> {
   public void setModel(M model) { this.model = model; }
 }
 
+// Tv클래스가 있다고 가정
 Product<Tv,String> product = new Product<Tv,String>();
 Product<Tv,String> product = new Product<>();
 ```
