@@ -98,7 +98,7 @@ public static void main(String[] args) {
 ### 와일드 카드의 세가지 타입
 
 ![상속이미지](https://user-images.githubusercontent.com/58713853/74127153-1b0fbc00-4c1d-11ea-8e73-88171a6ad427.jpg)
-- 이미지 출처 : https://zbomoon.tistory.com/13
+<br> 이미지 출처 : https://zbomoon.tistory.com/13
 
 - 제네릭 타입<?> : Unbounded Wildcards(제한없음)
   - 타입 파라미터를 대치하는 구체적인 타입으로 모든 클래스나 인터페이스 타입이 올 수 있다.
