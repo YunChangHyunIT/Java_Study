@@ -127,7 +127,7 @@ public static void main(String[] args) {
   - 자바는 ForkJoinPool이라는 프레임워크를 이용해서 병렬 처리를 한다. (JAVA API)
 
 ```java
-public class Print {
+public class Print {	// 메소드 참조를 사용하기 위한 객체
 	public void print(String a) {
 		System.out.println(a+",");
 	}
@@ -234,7 +234,7 @@ public class Member {
 public static void main(String[] args) {
 		List<String> names = Arrays.asList("정인선","조수아","정인선","배수지","조두산","조형기");
     
-    names.stream()
+   		names.stream()
 			.distinct()
 			.filter(n -> n.startsWith("배"))
 			.forEach(n -> System.out.println(n));
